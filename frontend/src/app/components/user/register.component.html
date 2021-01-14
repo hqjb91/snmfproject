@@ -1,0 +1,48 @@
+<div class="container register-container">
+    <div class="row">
+      <div class="col-md-6 ads">
+        <h1><span id="fl">Re</span><span id="sl">ku</span></h1>
+      </div>
+      <div class="col-md-6 register-form">
+        <h3>Register</h3>
+        <form [formGroup]="form" (ngSubmit)="processRegister()">
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="username" placeholder="Username">
+            <div *ngIf="form.get('username').hasError('required') && form.get('username').touched" class="alert alert-warning alert-dismissible fade show mt-1">
+              <strong>Warning!</strong> Username field is required.
+            </div>
+            <div *ngIf="form.get('username').hasError('minlength') && form.get('username').touched" class="alert alert-warning alert-dismissible fade show mt-1">
+              <strong>Warning!</strong> Minimum 5 characters required.
+            </div>
+            <div *ngIf="form.get('username').hasError('maxlength') && form.get('username').touched" class="alert alert-warning alert-dismissible fade show mt-1">
+              <strong>Warning!</strong> Maximum 20 characters.
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="email" placeholder="Email">
+            <div *ngIf="form.get('email').invalid && form.get('email').touched" class="alert alert-warning alert-dismissible fade show mt-1">
+              <strong>Warning!</strong> Please enter a valid email.
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+            <div *ngIf="form.get('password').hasError('required') && form.get('password').touched" class="alert alert-warning alert-dismissible fade show mt-1">
+              <strong>Warning!</strong> Password field is required.
+            </div>
+            <div *ngIf="form.get('password').hasError('minlength') && form.get('password').touched" class="alert alert-warning alert-dismissible fade show mt-1">
+              <strong>Warning!</strong> Minimum 5 characters required.
+            </div>
+            <div *ngIf="form.get('password').hasError('maxlength') && form.get('password').touched" class="alert alert-warning alert-dismissible fade show mt-1">
+              <strong>Warning!</strong> Maximum 20 characters.
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="button" type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="form.invalid">Register</button>
+            <div *ngIf="errorMessage.length > 1" class="alert alert-warning alert-dismissible fade show mt-1">
+              <strong>Warning!</strong> {{errorMessage}}
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

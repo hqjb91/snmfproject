@@ -1,0 +1,27 @@
+<div class="container clearfix">
+    <div class="chat">   
+
+        <div class="chat-history">
+            <ul class="chat-ul">
+                <div *ngFor="let post of postLists">
+                    <li> <h2>{{post.title}}</h2></li>
+                    <li>
+                        <div class="message-data">
+                            <span class="message-data-name"><i class="fa fa-circle user"></i> {{post.username}}</span>
+                        </div>
+                        <div class="message you-message">
+                            {{post.post}}
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-between">
+        <button class="btn btn-light" (click)="previous()" [disabled]="offset == 0">Previous</button>   
+        <button class="btn btn-light" (click)="next()" [disabled]="offset >= (maxCount - limit)">Next</button>
+    </div>
+    
+
+</div>

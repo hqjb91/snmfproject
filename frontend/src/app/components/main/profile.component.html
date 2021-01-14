@@ -1,0 +1,39 @@
+<div class="jumbotron">
+    <h1 class="display-4">Profile Page ({{username}})</h1>
+    <p class="lead">Welcome to your profile page <b>{{username}}</b>, your stats are :</p>
+    <hr class="my-4">
+    <div class="row">
+
+      <div class="col-md-4">
+
+          <div class="card mt-3 mb-1" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{username}}</h5>
+              <p class="card-text">Your email is : {{email}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"> 
+    
+                    Your current exp is : 
+                    {{xp}}/{{xpToNextLvl}}
+                    <div class="progress mt-2">
+                        <div class="progress-bar" role="progressbar"
+                        aria-valuemin="0" aria-valuemax="100" [style.width.%]="percentage">
+                          <span>{{percentage}}% Complete</span>
+                        </div>
+                    </div>
+              </li>
+              <li class="list-group-item">Your level is : {{lvl}}</li>
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+          Top 5 Players :
+          <ul class="list-group mt-1">
+            <li class="list-group-item" *ngFor="let player of topPlayers">{{player['user_id']}} : {{player['user_xp']}} xp</li>
+          </ul>
+
+      </div>
+    </div>
+  
+</div>
